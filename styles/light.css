@@ -4,9 +4,203 @@
   переключая тему
 */
 
+:root .theme_light {
+  --decor-round: transparent; /*Цвет круглого элемента* +++                     transparent*/
+  --menu-color: #353430; /* цвет пунктов меню + декоративные элменты +++    #353430  */
+  --text-title: #FFC2E6; /*Цвет текста основного заголовка +++              #FFC2E6;  */ 
+  --text-title-section: #353430; /*  Цвет текста заголовок секций +++       #353430 */
+  --text-subtitle-section: #353430;  /* Цвет текста подзаголовка секции     #353430 +++*/
+  --background-subtitle-section: #FF8DCB; /* Цвет фона подзаголовка секции +++ #FF8DCB */
+  --text-color: #353430; /* Цвет основного текста подзаголовка секции +++      #353430*/
+  --background: url(../images/cover-image-light.png);
+}
+
+@media (prefers-color-scheme: light) {
+  :root .theme_light {
+    --decor-round: transparent; /*Цвет круглого элемента* +++                     transparent*/
+    --menu-color: #353430; /* цвет пунктов меню + декоративные элменты +++    #353430  */
+    --text-title: #FFC2E6; /*Цвет текста основного заголовка +++              #FFC2E6;  */ 
+    --text-title-section: #353430; /*  Цвет текста заголовок секций +++       #353430 */
+    --text-subtitle-section: #353430;  /* Цвет текста подзаголовка секции     #353430 +++*/
+    --background-subtitle-section: #FF8DCB; /* Цвет фона подзаголовка секции +++ #FF8DCB */
+    --text-color: #353430; /* Цвет основного текста подзаголовка секции +++      #353430*/
+    --background: url(../images/cover-image-light.png);
+  }
+}
+
+
 .page.theme_light {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+  font-family: "IBM Plex mono" ,sans-serif;
+  border: 1px solid red;
+  background-image: var(--background);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* общие стили для header*/
+
+.header { 
+  position: relative;
+}
+
+.theme_light .decor-element-text {
+  position: absolute;
+  color: var(--menu-color);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: center;
+  top: 20px;
+  right: 45px;
+}
+
+.theme_light .decor-element-text::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--decor-round);
+  display: block;
+  position: absolute;
+  left: 40px;
+  top: 6px;
+}
+
+.decor-element-corner {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
+
+.theme_light .decor-element-corner-top {
+  top: 20px;
+  right: 20px;
+  border-right: 1px solid var(--menu-color);
+  border-top: 1px solid var(--menu-color);
+}
+
+.theme_light .decor-element-corner-bottom {
+  bottom: 28px;
+  left: 20px;
+  border-left: 1px solid var(--menu-color);
+  border-bottom: 1px solid var(--menu-color);
+}
+
+.theme_light .header__theme-title {
+  color: var(--text-title);
+  text-shadow: 4px 4px 0 #FF0070;
+}
+
+.theme_light .header__theme-menu-item {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19px;
+  color: var(--menu-color);
+}
+
+.header__theme-menu-button {
+  width: 70px;
+  height: 26px;
+  background: transparent;
+  border: none;
+  text-transform: lowercase;
+  font-family: "IBM Plex mono", sans-serif;
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: 1px solid currentColor ;
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid currentColor;
+}
+
+.header__theme-text {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23px;
+}
+
+/* Общие стили для main */
+
+.main {
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+.theme_light h2.main__theme-article-title {
+  color: var(--text-title-section);
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+  text-shadow: 2px 2px 0 #FF0070;
+}
+
+a:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+a:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+.theme_light .title-decor {
+  /* color: #000028;
+  background: #FF0070; */
+  color: var( --text-subtitle-section);
+  background-color: var(--background-subtitle-section);
+  letter-spacing: 1px;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.main__theme-article {
+  display: grid;
+}
+
+.main__theme-article-item {
+  margin-bottom: 20px;
+}
+
+.text {
+  color: var(--text-color);
+}
+
+.img1 {
+  background-image: url(../images/sunset.png);
+  background-size: contain;
+}
+
+.img2 { 
+  background-image: url(../images/ice-cream.png);
+  background-size: cover;
+  background-position: 50% center;
+}
+
+.img3 {
+  background-image: url(../images/tape.png);
+  background-size: cover;
+  background-position: 50% center;
+}
+
+.img4 {
+  background-image: url(../images/books.png);
+  background-size: cover;
+}
+
+.img5 {
+  background-image: url(../images/street.png);
+  background-size: contain;
+}
+
+.footer {
+  position: relative;
+}
+
+.theme_light .footer-text {
+  color: var(--text-title);
+  text-shadow: 4px 4px 0 #FF0070;
 }
