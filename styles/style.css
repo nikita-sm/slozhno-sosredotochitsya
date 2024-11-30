@@ -1,4 +1,7 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+:root {
+  --count-rows: 2;
+}
 .page {
   font-family: "IBM Plex mono" ,sans-serif;
   background-size: cover;
@@ -84,6 +87,7 @@ a:focus-visible {
   height: 10px;
   border-radius: 50%;
   background-color: currentColor;
+  box-shadow: 0px 0px 12px 3px currentColor;
 }
 
 .header__theme-menu {
@@ -176,40 +180,71 @@ h4.main__theme-section-item-subtitle {
 }
 
 .main__theme-section:nth-child(1) {
-  grid-template-columns: 315px 1fr;
-  grid-template-rows: repeat(2, auto)
+  /* grid-template-columns: 315px 1fr; */
+  /* grid-template-rows: repeat(2, auto) */
 }
 
-.main__theme-section:nth-child(1) .main__theme-section-title {
+/* .main__theme-section:nth-child(1) .main__theme-section-title {
   grid-row: 1/-1;
-}
+} */
 
 .main__theme-section:nth-child(2) {
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto)
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* grid-template-rows: repeat(2, auto) */
 }
 
-.main__theme-section:nth-child(2) .main__theme-section-title {
+/* .main__theme-section:nth-child(2) .main__theme-section-title {
   grid-column: 1/-1;
-}
+} */
 
 .main__theme-section:nth-child(3) {
-  grid-template-columns: 315px 1fr;
-  grid-template-rows: repeat(6, auto)
+  /* grid-template-columns: 315px 1fr; */
+  /* grid-template-rows: repeat(6, auto) */
 }
 
-.main__theme-section:nth-child(3) .main__theme-section-title {
+/* .main__theme-section:nth-child(3) .main__theme-section-title {
+  grid-row: 1/-1;
+} */
+
+.main__theme-section:nth-child(4) {
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* grid-template-rows: repeat(4, auto); */
+}
+
+/* .main__theme-section:nth-child(4) .main__theme-section-item-subtitle {
+  grid-column: 1/-1;
+} */
+/* Вспомогательные классы*/
+
+.concatinated_row {
   grid-row: 1/-1;
 }
 
-.main__theme-section:nth-child(4) {
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, auto);
-}
-
-.main__theme-section:nth-child(4) .main__theme-section-item-subtitle {
+.concatinated_col {
   grid-column: 1/-1;
 }
+
+.two_col_template {
+  grid-template-columns: 315px 1fr;
+}
+
+.three_col_template {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.two_row_template {
+  grid-template-rows: repeat(calc(var(--count-rows)), auto)
+}
+
+.four_row_template {
+  grid-template-rows: repeat(calc(2 * var(--count-rows)), auto)
+}
+
+.six_row_template {
+  grid-template-rows: repeat(calc(3 * var(--count-rows)), auto)
+}
+
+/*Вспомогательные классы*/
 
 .main__theme-section-title {
   color: var(--text-title-section);
@@ -226,7 +261,7 @@ h4.main__theme-section-item-subtitle {
 
 /*Общие стили для footer*/
 .footer {
-  /* height: 100vh; */
+  height: 100vh;
   min-height: 768px;
   color: var(--text-title);
 }
@@ -500,63 +535,80 @@ img {
     margin-bottom: 50px;
   }
 
-  .main__theme-section:nth-child(1) {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, auto)
+  .main__theme-section {
+    grid-template-columns: repeat(1, 1fr);
   }
-  
-  .main__theme-section:nth-child(1) .main__theme-section-title {
+
+  .mobile_three_row {
+    grid-template-rows: repeat(calc(1.5 * var(--count-rows)), auto);
+  }
+
+  .mobile_four_row {
+    grid-template-rows: repeat(calc(2 * var(--count-rows)), auto);
+  }
+
+  .mobile_seven_row {
+    grid-template-rows: repeat(calc(3.5 * var(--count-rows)), auto);
+  }
+
+  .mobile_six_row {
+    grid-template-rows: repeat(calc(3 * var(--count-rows)), auto);
+  }
+
+  .concatinated_row {
     grid-row: 1/2;
   }
-  
-  .main__theme-section:nth-child(2) {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(4, auto)
+
+  .concatinated_col {
+    grid-column: 1/2;
+  }
+
+  .main__theme-section:nth-child(1) .main__theme-section-title {
+    /* grid-row: 1/2; */
   }
   
   .main__theme-section:nth-child(2) .main__theme-section-title {
-    grid-column: 1/2;
-  }
-  
-  .main__theme-section:nth-child(3) {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(7, auto);
-  }
-  
-  .main__theme-section:nth-child(3) .main__theme-section-title {
-    grid-row: 1/2;
+    /* grid-column: 1/2; */
   }
 
-  .main__theme-section:nth-child(4) {
+  .main__theme-section:nth-child(3) .main__theme-section-title {
+    /* grid-row: 1/2; */
+  }
+
+  .main__theme-section:nth-child(4) .main__theme-section-title {
+    
+  }
+
+  .main__theme-section:last-child {
     row-gap: 10px;
   }
 
-  .img1 {
+  .img {
     grid-column: 1/-1;
+    background-size: contain;
+  }
+
+  .img1 {
     grid-row: 2/3;
     height: 142px;
   }
   
   .img2 {
-    grid-column: 1/-1;
     grid-row: 3/4;
     height: 355px;
   }
   
   .img3 {
-    grid-column: 1/-1;
     grid-row: 4/5;
     height: 237px;
   }
   
   .img4 {
-    grid-column: 1/-1;
     grid-row: 5/6;
     height: 355px;
   }
   
   .img5 {
-    grid-column: 1/-1;
     grid-row: 6/7;
     height: 237px;
   }
