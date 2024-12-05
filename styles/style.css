@@ -1,13 +1,9 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-:root {
-  --count-rows: 2;
-}
 .page {
   font-family: "IBM Plex mono" ,sans-serif;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  border: 1px solid red; /* Указал, чтобы были видны границы блока на разных разрешениях */
   background-image: var(--background-img);
   background-color: var(--background-color);
   position: relative;
@@ -27,7 +23,7 @@ a:focus {
 }
 
 a:focus-visible {
-  border-bottom: 1px solid currentColor;
+  outline: 1px solid var(--border-button);
 }
 
 .header {
@@ -85,9 +81,9 @@ a:focus-visible {
   display: inline-block;
   width: 10px;
   height: 10px;
-  border-radius: 50%;
   background-color: currentColor;
   box-shadow: 0px 0px 12px 3px currentColor;
+  border-radius: 50%;
 }
 
 .header__theme-menu {
@@ -111,7 +107,7 @@ button.header__theme-menu-button_active {
 }
 
 button:hover {
-  outline: 1px solid currentColor;
+  outline: 1px solid var(--border-button);
 }
 
 button:focus {
@@ -144,7 +140,6 @@ button:focus-visible         {
 
 .main__theme-section {
   width: 100%;
-  /* outline: 1px solid blue; */
 }
 
 .main__theme-section:not(:last-child) {
@@ -157,119 +152,55 @@ button:focus-visible         {
   row-gap: 20px;
 }
 
-.main__theme-section-title {
+.main__theme-section-container-card-title {
+  color: var(--text-subtitle-section);
+  background: var(--background-subtitle-section);
+  margin-bottom: 10px;
+}
+
+.main__theme-section-container-card-content {
+  color: var(--text-color);
+  font-weight: 400;
   font-size: 18px;
   line-height: 23.4px;
-  font-weight: 700;
+  letter-spacing: -0.05px;
+
 }
 
-.main__theme-section-item-content {
-  margin-top: 10px;
-  line-height: 23.4px;
-  font-size: 18px;
-  letter-spacing: -0.1px;
+.main__theme-section-container > .main__theme-section-container-card:not(:last-child) {
+  margin-bottom: 20px;
 }
 
-.main__theme-section-item-subtitle {
-  letter-spacing: -0.55px;
-}
-
-h4.main__theme-section-item-subtitle {
-  letter-spacing: 1.3px;
-  line-height: 22px;
-}
-
-.main__theme-section:nth-child(1) {
-  /* grid-template-columns: 315px 1fr; */
-  /* grid-template-rows: repeat(2, auto) */
-}
-
-/* .main__theme-section:nth-child(1) .main__theme-section-title {
-  grid-row: 1/-1;
-} */
-
-.main__theme-section:nth-child(2) {
-  /* grid-template-columns: repeat(3, 1fr); */
-  /* grid-template-rows: repeat(2, auto) */
-}
-
-/* .main__theme-section:nth-child(2) .main__theme-section-title {
-  grid-column: 1/-1;
-} */
-
-.main__theme-section:nth-child(3) {
-  /* grid-template-columns: 315px 1fr; */
-  /* grid-template-rows: repeat(6, auto) */
-}
-
-/* .main__theme-section:nth-child(3) .main__theme-section-title {
-  grid-row: 1/-1;
-} */
-
-.main__theme-section:nth-child(4) {
-  /* grid-template-columns: repeat(3, 1fr); */
-  /* grid-template-rows: repeat(4, auto); */
-}
-
-/* .main__theme-section:nth-child(4) .main__theme-section-item-subtitle {
-  grid-column: 1/-1;
-} */
-/* Вспомогательные классы*/
-
-.concatinated_row {
-  grid-row: 1/-1;
-}
-
-.concatinated_col {
-  grid-column: 1/-1;
+h4.main__theme-section-container-card-title {
+  font-weight: 400;
+  line-height: 23px;
 }
 
 .two_col_template {
   grid-template-columns: 315px 1fr;
+  row-gap: 20px;
+  column-gap: 20px;
 }
 
-.three_col_template {
-  grid-template-columns: repeat(3, 1fr);
+.one_col_template {
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 20px;
+  column-gap: 20px;
 }
-
-.two_row_template {
-  grid-template-rows: repeat(calc(var(--count-rows)), auto)
-}
-
-.four_row_template {
-  grid-template-rows: repeat(calc(2 * var(--count-rows)), auto)
-}
-
-.six_row_template {
-  grid-template-rows: repeat(calc(3 * var(--count-rows)), auto)
-}
-
-/*Вспомогательные классы*/
 
 .main__theme-section-title {
+  font-size: 18px;
+  line-height: 23.4px;
+  font-weight: 700;
   color: var(--text-title-section);
 }
 
-.main__theme-section-item-subtitle {
-  color: var(--text-subtitle-section);
-  background-color: var(--background-subtitle-section);
-}
-
-.main__theme-section-item-content {
-  color: var(--text-color);
-}
-
-/*Общие стили для footer*/
-.footer {
-  height: 100vh;
-  min-height: 768px;
-  color: var(--text-title);
-}
-
-.footer-text {
-  text-align: center;
-  font-weight: 700;
-  text-shadow: 4px 4px 0 var(--decor-round);
+.main__theme-section-container-images {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
+  row-gap: 20px;
+  column-gap: 20px;
 }
 
 img {
@@ -301,6 +232,17 @@ img {
   background-image: url(../images/street.png);
 }
 
+.footer {
+  min-height: 768px;
+  color: var(--text-title);
+}
+
+.footer-text {
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 4px 4px 0 var(--decor-round);
+}
+
 @media(min-width: 1024px) {
     .page {
       max-width: 1024px;
@@ -309,6 +251,7 @@ img {
     .header {
       padding-top: 20px;
       padding-right: 20px;
+      min-height: 768px;
     }
 
     .header__theme-menu-list {
@@ -324,56 +267,80 @@ img {
     }
 
     .header__theme-text {
-      margin-top: 114px;
+      margin-top: 11.3%;
       width: 49%;
       margin-left: auto;
     }
 
-    .main__theme-section:nth-child(2) .main__theme-section-title {
-      width: 30%;
+    .main__theme-section-container-card-title {
+      letter-spacing: -0.3px;
     }
 
+    .main__theme-section-container-card-title.main__theme-section-container-card {
+      letter-spacing: -0.4px;
+    }
+
+    .adaptive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(314px, 1fr));
+      column-gap: 20px;
+      row-gap: 20px;
+    }
+
+    h4.main__theme-section-container-card-title {
+      letter-spacing: 1.25px;
+    }
+
+    .main__theme-section-title.main__theme-section-container-card-title {
+      margin-bottom: 20px;
+      letter-spacing: 0.1px;
+    }
+
+    .additional-style-section-title {
+      width: 315px;
+    }
 
     .img1 {
       grid-column: 1/3;
-      grid-row: 2/3;
+      grid-row: 1/2;
       height: 260px;
     }
     
     .img2 {
       grid-column: 3/-1;
-      grid-row: 2/4;
+      grid-row: 1/-2;
       height: 595px;
     }
     
     .img3 {
       grid-column: 1/2;
-      grid-row: 3/-1;
+      grid-row: 2/-1;
       height: 768px;
     }
     
     .img4 {
       grid-column: 2/3;
-      grid-row: 3/4;
+      grid-row: 2/3;
       height: 315px;
     }
     
     .img5 {
       grid-column: 2/-1;
-      grid-row: 4/-1;
+      grid-row: 3/-1;
       height: 433px;
     }
 
     .footer {
       padding-top: 31.15%;
       padding-bottom: 31.15%;
+      min-height: 768px;
     }
 
     .footer-text {
       font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
       line-height: 129.53px;
+      min-height: 1024px;
     }
-
 }
 
 @media(min-width: 768px) and (max-width: 1023px){
@@ -382,8 +349,9 @@ img {
   }
 
   .header {
-    padding-top: 192px;
+    padding-top: 190px;
     padding-right: 20px;
+    min-height: 768px;
   }
 
   .header__theme-menu-list {
@@ -396,79 +364,87 @@ img {
   .header__theme-title {
     line-height: 99px;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-    margin-top: 173px;
-    letter-spacing: 0px;
+    margin-top: 177px;
+    letter-spacing: 0.1px;
   }
 
   .header__theme-text {
-    margin-top: 162px;
+    margin-top: 22%;
     width: 49%;
     margin-left: auto;
-    letter-spacing: 2px;
+    letter-spacing: 0px;
+    margin-right: -4px;
   }
 
-  .main__theme-section:nth-child(1) {
+  .main__theme-section-container_cols {
+    display: block;
+  }
+
+  .main__theme-section-container-card-title {
+    letter-spacing: -0.3px;
+  }
+
+  .main__theme-section-container-card-title.main__theme-section-container-card {
+    letter-spacing: -0.4px;
+  }
+
+  h4.main__theme-section-container-card-title {
+    letter-spacing: 1.25px;
+  }
+
+  .main__theme-section-title.main__theme-section-container-card-title {
+    margin-bottom: 20px;
+    letter-spacing: 0.1px;
+  }
+
+  .additional-style-section-title {
+    width: 236px;
+  }
+
+  .break {
+    display: block;
+  }
+
+  .two_col_template {
     grid-template-columns: 236px 1fr;
-    grid-template-rows: repeat(2, auto)
-  }
-    
-  .main__theme-section:nth-child(2) {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(4, auto)
-  }
-  
-  .main__theme-section:nth-child(2) .main__theme-section-title {
-    grid-column: 1/-1;
-    width: 20%;
-  }
-  
-  .main__theme-section:nth-child(3) {
-    grid-template-columns: 236px 1fr;
-    grid-template-rows: repeat(6, auto)
-  }
-  
-  .main__theme-section:nth-child(3) .main__theme-section-title {
-    grid-row: 1/-1;
-  }
-  
-  .main__theme-section:nth-child(4) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, auto);
+    row-gap: 20px;
+    column-gap: 20px;
   }
 
   .img1 {
     grid-column: 1/3;
-    grid-row: 2/3;
+    grid-row: 1/2;
     height: 192px;
   }
   
   .img2 {
     grid-column: 3/-1;
-    grid-row: 2/4;
+    grid-row: 1/-2;
     height: 441px;
   }
   
   .img3 {
     grid-column: 1/2;
-    grid-row: 3/-1;
+    grid-row: 2/-1;
     height: 568px;
   }
   
   .img4 {
     grid-column: 2/3;
-    grid-row: 3/4;
+    grid-row: 2/3;
     height: 230px;
   }
   
   .img5 {
     grid-column: 2/-1;
-    grid-row: 4/-1;
+    grid-row: 3/-1;
     height: 318px;
   }
 
   .footer {
     padding-top: 60.15%;
     padding-bottom: 60.15%;
+    min-height: 1024px;
   }
 
   
@@ -476,8 +452,6 @@ img {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     line-height: 99px;
   }
-
-
 }
 
 @media(min-width: 375px) and (max-width: 767px) {
@@ -497,13 +471,18 @@ img {
 
   .decorated-zone::before {
     left: 10px;
-    bottom: 20px;
+    bottom: 10px;
+  }
+
+  .break {
+    display: block;
   }
 
   .header {
     padding-top: 75px;
     padding-right: 10px;
     padding-left: 10px;
+    min-height: 668px;
   }
 
   .header__theme-menu-list {
@@ -523,64 +502,58 @@ img {
   .header__theme-text {
     margin-top: 57px;
     width: 100%;
-    line-height: 29px;
+    line-height: 24px;
   }
 
   .main {
-    margin: 30px 0px 40px 0px;
+    margin: 41px 0px 40px 0px;
     padding: 0px 10px;
+  }
+
+  .main__theme-section-container-card-title {
+    letter-spacing: -0.3px;
+  }
+
+  .main__theme-section-container-card-title.main__theme-section-container-card {
+    letter-spacing: -0.4px;
+  }
+
+  h4.main__theme-section-container-card-title {
+    letter-spacing: 1.25px;
+  }
+
+  .main__theme-section-title.main__theme-section-container-card-title {
+    margin-bottom: 0px;
+    letter-spacing: 0.1px;
+  }
+  
+  .main__theme-section-container > .main__theme-section-container-card:not(:last-child) {
+    margin-bottom: 18px;
   }
 
   .main__theme-section:not(:last-child) {
     margin-bottom: 50px;
   }
 
-  .main__theme-section {
+  .two_col_template {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .one_col_template {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .mobile_three_row {
-    grid-template-rows: repeat(calc(1.5 * var(--count-rows)), auto);
+  .additional-margin > *:not(:last-child) {
+    margin-bottom: 20px !important;
   }
 
-  .mobile_four_row {
-    grid-template-rows: repeat(calc(2 * var(--count-rows)), auto);
-  }
-
-  .mobile_seven_row {
-    grid-template-rows: repeat(calc(3.5 * var(--count-rows)), auto);
-  }
-
-  .mobile_six_row {
-    grid-template-rows: repeat(calc(3 * var(--count-rows)), auto);
-  }
-
-  .concatinated_row {
-    grid-row: 1/2;
-  }
-
-  .concatinated_col {
-    grid-column: 1/2;
-  }
-
-  .main__theme-section:nth-child(1) .main__theme-section-title {
-    /* grid-row: 1/2; */
-  }
-  
-  .main__theme-section:nth-child(2) .main__theme-section-title {
-    /* grid-column: 1/2; */
-  }
-
-  .main__theme-section:nth-child(3) .main__theme-section-title {
-    /* grid-row: 1/2; */
-  }
-
-  .main__theme-section:nth-child(4) .main__theme-section-title {
-    
-  }
-
-  .main__theme-section:last-child {
+  .main__theme-section-container-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
     row-gap: 10px;
+    column-gap: 10px;
   }
 
   .img {
@@ -615,7 +588,8 @@ img {
 
   .footer {
     padding-top: 68.27%;
-    padding-bottom: 72.27%;
+    padding-bottom: 64.27%;
+    min-height: 668px;
   }
 
   .footer-text {

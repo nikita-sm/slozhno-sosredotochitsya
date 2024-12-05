@@ -5,13 +5,15 @@
 
 
 :root {
-  --decor-round: #FF0070; /*Цвет круглого элемента* +++                     transparent*/
-  --menu-color: #FF0070; /* цвет пунктов меню + декоративные элменты +++    #353430  */
-  --text-title: #DB00FF; /*Цвет текста основного заголовка +++              #FFC2E6;  */ 
-  --text-title-section: #FF0070; /*  Цвет текста заголовок секций +++       #353430 */
-  --text-subtitle-section: #000028;  /* Цвет текста подзаголовка секции     #353430 +++*/
-  --background-subtitle-section: #FF0070; /* Цвет фона подзаголовка секции +++ #FF8DCB */
-  --text-color: #F1B2CE; /* Цвет основного текста подзаголовка секции +++      #353430*/
-  --background-img: url(../images/cover-image-dark.png); /* Фоновое изображение */
-  --background-color: #000028; /* Цвет фона */
+  /* Светлая тема по умолчанию */
+  --decor-round: transparent; 
+  --menu-color: #353430; 
+  --text-title: #FFC2E6; 
+  --text-title-section: #353430;
+  --text-subtitle-section: #353430;
+  --background-subtitle-section: #FF8DCB;
+  --text-color: #353430;
+  --background-img: url(../images/cover-image-light.png);
+  --background-color: #fff1f7; /* Цвет фона */
+  --border-button: rgba(53,52,48, 0.4);
 }
